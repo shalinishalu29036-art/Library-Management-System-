@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Library Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <div class="container">
+            <h1>📚 Library Management System</h1>
+            <p>Manage books easily and efficiently</p>
+        </div>
+    </header>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <!-- DASHBOARD -->
+        <section class="dashboard">
+
+            <div class="card">
+                <h3>Total Books</h3>
+                <p id="totalBooks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Available Books</h3>
+                <p id="availableBooks">0</p>
+            </div>
+
+            <div class="card">
+                <h3>Issued Books</h3>
+                <p id="issuedBooks">0</p>
+            </div>
+
+        </section>
+
+
+        <!-- ADD / EDIT BOOK FORM -->
+        <section class="form-section">
+
+            <h2 id="formTitle">Add New Book</h2>
+
+            <form id="bookForm">
+
+                <input type="hidden" id="bookId">
+
+                <div class="form-group">
+                    <label for="title">Book Title</label>
+                    <input
+                        type="text"
+                        id="title"
+                        placeholder="Enter book title"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="author">Author</label>
+                    <input
+                        type="text"
+                        id="author"
+                        placeholder="Enter author name"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="isbn">ISBN</label>
+                    <input
+                        type="text"
+                        id="isbn"
+                        placeholder="Enter ISBN"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="category">Category</label>
+
+                    <select id="category" required>
+                        <option value="">Select Category</option>
+                        <option value="Fiction">Fiction</option>
+                        <option value="Science">Science</option>
+                        <option value="Technology">Technology</option>
+                        <option value="History">History</option>
+                        <option value="Biography">Biography</option>
+                        <option value="Education">Education</option>
+                        <option value="Other">Other</option>
+                    </select>
+
+                </div>
+
+                <div class="form-group">
+                    <label for="year">Published Year</label>
+                    <input
+                        type="number"
+                        id="year"
+                        placeholder="Enter year"
+                        min="1000"
+                        max="2100"
+                        required
+                    >
+                </div>
+
+                <div class="form-group">
+                    <label for="status">Status</label>
+
+                    <select id="status" required>
+                        <option value="Available">Available</option>
+                        <option value="Issued">Issued</option>
+                    </select>
+
+                </div>
+
+                <div class="button-group">
+
+                    <button type="submit" class="btn primary">
+                        Save Book
+                    </button>
+
+                    <button
+                        type="button"
+                        class="btn secondary"
+                        id="cancelBtn"
+                        onclick="resetForm()"
+                    >
+                        Cancel
+                    </button>
+
+                </div>
+
+            </form>
+
+            <p id="message"></p>
+
+        </section>
+
+
+        <!-- SEARCH -->
+        <section class="search-section">
+
+            <h2>Book List</h2>
+
+            <input
+                type="text"
+                id="searchInput"
+                placeholder="🔍 Search by title, author or ISBN..."
+            >
+
+        </section>
+
+
+        <!-- BOOK TABLE -->
+        <section class="table-section">
+
+            <div class="table-container">
+
+                <table>
+
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>ISBN</th>
+                            <th>Category</th>
+                            <th>Year</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="bookTableBody">
+                        <!-- Books will appear here -->
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+        <p>© 2026 Library Management System</p>
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
